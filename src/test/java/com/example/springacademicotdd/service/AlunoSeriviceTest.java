@@ -23,7 +23,7 @@ public class AlunoSeriviceTest {
 
     @Test
     public void buscarAlunoPelaMatriculaTeste() {
-        Assertions.assertEquals(1, alunoService.buscarPelaMatricula(1));
+        Assertions.assertEquals(1L, alunoService.buscarPelaMatricula(1L));
     }
 
 }

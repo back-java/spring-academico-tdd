@@ -1,12 +1,17 @@
 package com.example.springacademicotdd.service;
 
+import com.example.springacademicotdd.model.Aluno;
+import com.example.springacademicotdd.repository.AlunoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AlunoService {
-    public Integer buscarPelaMatricula(Integer matricula) {
-        if(matricula == 1)
-            return 1;
-        return 0;
+
+    @Autowired
+    private AlunoRepository alunoRepository;
+
+    public Aluno buscarPelaMatricula(Long matricula) {
+        return alunoRepository.findById(matricula);
     }
 }
