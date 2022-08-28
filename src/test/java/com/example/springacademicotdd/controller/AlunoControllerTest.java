@@ -35,8 +35,23 @@ public class AlunoControllerTest {
             .given()
                 .accept(ContentType.JSON)
             .when()
-                .get("/alunos/{id}", 1)
+                .get("/alunos/{id}", 1L)
             .then()
                 .statusCode(HttpStatus.OK.value());
     }
+
+    @Test
+    public void deveRetornarNaoEncontrado_QuandoBuscarAluno() {
+        Mockito.when(alunoService.buscarPelaMatricula(2L))
+            .thenReturn(null);
+
+        RestAssuredMockMvc
+            .given()
+                .accept(ContentType.JSON)
+            .when()
+                .get("/alunos/{id}", 2L)
+            .then()
+                .statusCode(HttpStatus.NOT_FOUND.value());
+    }
+
 }
