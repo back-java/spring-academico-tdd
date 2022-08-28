@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Repository
 public class AlunoRepository {
@@ -16,7 +17,7 @@ public class AlunoRepository {
         alunos.put(aluno.getId(), aluno);
     }
 
-    public Aluno findById(Long id) {
-        return alunos.get(id);
+    public Optional<Aluno> findById(Long id) {
+        return Optional.of(alunos.get(id));
     }
 }

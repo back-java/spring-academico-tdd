@@ -4,6 +4,9 @@ import com.example.springacademicotdd.model.Aluno;
 import com.example.springacademicotdd.service.AlunoService;
 import io.restassured.http.ContentType;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
+
+import java.util.Optional;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -29,7 +32,7 @@ public class AlunoControllerTest {
     @Test
     public void deveRetornarSucesso_QuandoBuscarAluno() {
         Mockito.when(alunoService.buscarPelaMatricula(1L))
-            .thenReturn(new Aluno(1L, "Robson Leal", "2119849553", "Alvorada"));
+            .thenReturn(Optional.of(new Aluno(1L, "Robson Leal", "2119849553", "Alvorada")));
 
         RestAssuredMockMvc
             .given()
