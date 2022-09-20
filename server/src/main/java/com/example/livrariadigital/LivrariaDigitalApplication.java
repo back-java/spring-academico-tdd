@@ -1,13 +1,13 @@
-package com.example.springacademicotdd;
+package com.example.livrariadigital;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringAcademicoTddApplication {
+public class LivrariaDigitalApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringAcademicoTddApplication.class, args);
+		SpringApplication.run(LivrariaDigitalApplication.class, args);
 	}
 
 }
