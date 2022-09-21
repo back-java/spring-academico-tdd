@@ -1,11 +1,13 @@
 package com.example.livrariadigital.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.livrariadigital.dto.LivroDto;
 import com.example.livrariadigital.model.Livro;
 import com.example.livrariadigital.repository.LivroRepository;
 import com.example.livrariadigital.service.exception.EntityNotFoundException;
@@ -17,14 +19,17 @@ public class LivroService {
     private LivroRepository repository;
 
     @Transactional(readOnly = true)
-    public List<Livro> findAll() {
-        return repository.findAll();
+    public List<LivroDto> findAll() {
+        List<Livro> allLivros = repository.findAll();
+        return allLivros.stream().map(i -> new LivroDto(i)).collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
-    public Livro findById(Long id) {
-        return repository.findById(id).orElseThrow(
+    public LivroDto findById(Long id) {
+        Livro livro = repository.findById(id).orElseThrow(
             () -> new EntityNotFoundException("Id '" + id + "' not found")
         );
+
+        return new LivroDto(livro);
     }
 }

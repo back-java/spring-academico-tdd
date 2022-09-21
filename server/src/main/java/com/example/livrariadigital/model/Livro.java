@@ -14,8 +14,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.JoinColumn;
 
 import lombok.AllArgsConstructor;
@@ -56,7 +54,6 @@ public class Livro implements Serializable {
     @Column(name = "prazo_entrega", nullable = false)
     private Integer prazoEntrega;
 
-    @JsonManagedReference
     @ManyToMany
     @JoinTable(
         name               = "autores_livros",

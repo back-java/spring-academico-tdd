@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.livrariadigital.model.Livro;
+import com.example.livrariadigital.dto.LivroDto;
 import com.example.livrariadigital.service.LivroService;
 
 @RestController
@@ -21,12 +21,12 @@ public class LivroController {
     private LivroService service;
 
     @GetMapping
-    public ResponseEntity<List<Livro>> findAll() {
+    public ResponseEntity<List<LivroDto>> findAll() {
         return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> findById(@PathVariable Long id) {
+    public ResponseEntity<LivroDto> findById(@PathVariable Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(service.findById(id));
     }
 }
