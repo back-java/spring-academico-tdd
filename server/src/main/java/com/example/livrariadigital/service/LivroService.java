@@ -3,6 +3,7 @@ package com.example.livrariadigital.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,5 +32,14 @@ public class LivroService {
         );
 
         return new LivroDto(livro);
+    }
+
+    @Transactional
+    public LivroDto save(LivroDto livro) {
+        Livro novoLivro = new Livro();
+        BeanUtils.copyProperties(livro, novoLivro, "cod_livro");
+        novoLivro = repository.save(novoLivro);
+
+        return new LivroDto(novoLivro);
     }
 }

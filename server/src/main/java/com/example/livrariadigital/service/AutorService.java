@@ -3,6 +3,7 @@ package com.example.livrariadigital.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,6 +33,15 @@ public class AutorService {
         );
 
         return new AutorDto(autor);
+    }
+
+    @Transactional
+    public AutorDto save(AutorDto autor) {
+        Autor novoAutor = new Autor();
+        BeanUtils.copyProperties(autor, novoAutor, "cod_autor");
+        novoAutor = repository.save(novoAutor);
+
+        return new AutorDto(novoAutor);
     }
     
 }
