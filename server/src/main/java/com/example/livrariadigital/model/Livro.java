@@ -48,13 +48,13 @@ public class Livro implements Serializable {
     private Date anoLancamento;
     
     @Column(nullable = false)
-    private char importado;
+    private Boolean importado;
     
     @Column(nullable = false)
-    private double preco;
+    private Double preco;
     
     @Column(name = "prazo_entrega", nullable = false)
-    private int prazoEntrega;
+    private Integer prazoEntrega;
 
     @JsonManagedReference
     @ManyToMany
