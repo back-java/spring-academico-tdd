@@ -46,7 +46,6 @@ public class LivroService {
     @Transactional
     public LivroDto save(LivroDto livro) {
         Livro novoLivro = new Livro();
-        //BeanUtils.copyProperties(livro, novoLivro, "cod_livro");
         copyDtoToEntity(livro, novoLivro);
         novoLivro = repository.save(novoLivro);
 

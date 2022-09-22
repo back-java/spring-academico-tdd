@@ -11,6 +11,12 @@ public class Factory {
         return livro;
     }
 
+    public static Livro criarLivroSemId() {
+        Livro livro = new Livro(null, "Livro vermelho", 2000, true, 25., 120);
+        livro.getAutores().add(new Autor(2L, "Autor azul", null));
+        return livro;
+    }
+
     public static LivroDto criarLivroDto() {
         Livro livro = criarLivro();
         return new LivroDto(livro, livro.getAutores());
