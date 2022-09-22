@@ -1,13 +1,12 @@
 package com.example.livrariadigital.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,9 +29,9 @@ public class LivroService {
     private AutorRepository autorRepository;
 
     @Transactional(readOnly = true)
-    public List<LivroDto> findAll() {
-        List<Livro> allLivros = repository.findAll();
-        return allLivros.stream().map(i -> new LivroDto(i)).collect(Collectors.toList());
+    public Page<LivroDto> findAll(Pageable pageable) {
+        Page<Livro> allLivros = repository.findAll(pageable);
+        return allLivros.map(i -> new LivroDto(i));
     }
 
     @Transactional(readOnly = true)
