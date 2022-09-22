@@ -2,7 +2,6 @@ package com.example.livrariadigital.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -20,14 +19,14 @@ public class LivroDto implements Serializable {
 
     private Long codLivro;
     private String titulo;
-    private Date anoLancamento;
+    private Integer anoLancamento;
     private Boolean importado;
     private Double preco;
     private Integer prazoEntrega;
 
     private List<AutorDto> autores = new ArrayList<>();
 
-    public LivroDto(Long codLivro, String titulo, Date anoLancamento, Boolean importado, Double preco,
+    public LivroDto(Long codLivro, String titulo, Integer anoLancamento, Boolean importado, Double preco,
             Integer prazoEntrega) {
         this.codLivro = codLivro;
         this.titulo = titulo;

@@ -2,7 +2,6 @@ package com.example.livrariadigital.model;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,8 +39,8 @@ public class Livro implements Serializable {
     @Column(nullable = false)
     @Getter @Setter private String titulo;
 
-    @Column(name = "ano_lancamento", nullable = false)
-    @Getter @Setter private Date anoLancamento;
+    @Column(name = "ano_lancamento", length = 4, nullable = false)
+    @Getter @Setter private Integer anoLancamento;
     
     @Column(nullable = false)
     @Getter @Setter private Boolean importado;
@@ -77,7 +76,7 @@ public class Livro implements Serializable {
         updatedAt = Instant.now();
     }
 
-    public Livro(Long codLivro, String titulo, Date anoLancamento, Boolean importado, Double preco,
+    public Livro(Long codLivro, String titulo, Integer anoLancamento, Boolean importado, Double preco,
             Integer prazoEntrega) {
         this.codLivro = codLivro;
         this.titulo = titulo;
