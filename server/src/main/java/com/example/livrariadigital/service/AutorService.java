@@ -37,7 +37,7 @@ public class AutorService {
             () -> new ResourceNotFoundException("Id '" + id + "' not found")
         );
 
-        return new AutorDto(autor);
+        return new AutorDto(autor, autor.getLivros());
     }
 
     @Transactional

@@ -1,9 +1,10 @@
-insert into autores (nome, descricao) values ('Sophia Angelides',null);
-insert into autores (nome, descricao) values ('Mário Pedrosa',null);
-insert into autores (nome, descricao) values ('Emílio F. Moran',null);
-insert into autores (nome, descricao) values ('Jack R. Greene',null);
-insert into autores (nome, descricao) values ('Antônio Chaves',null);
+insert into autores (nome, descricao, created_At) values ('Sophia Angelides', null, NOW());
+insert into autores (nome, descricao, created_At) values ('Mário Pedrosa', null, NOW());
+insert into autores (nome, descricao, created_At) values ('Emílio F. Moran', null, NOW());
+insert into autores (nome, descricao, created_At) values ('Jack R. Greene', null, NOW());
+insert into autores (nome, descricao, created_At) values ('Antônio Chaves', null, NOW());
 
+-- --INSERT INTO tb_record (game_id, name, age, moment) VALUES (3, 'Tulio', 44, TIMESTAMP WITH TIME ZONE '2020-07-21T20:59:19Z');
 insert into livros (titulo, ano_lancamento, importado, prazo_entrega, preco) values ('BTCHEKHOV: Cartas para uma Poética','1995-12-29',true,296,43);
 insert into livros (titulo, ano_lancamento, importado, prazo_entrega, preco) values ('MODERNOS - Textos Escolhidos 3', '2002-09-22',false,31,47);
 insert into livros (titulo, ano_lancamento, importado, prazo_entrega, preco) values ('HUMANA: Uma Introdução à Antropologia', '1998-01-17',false,400,42);
